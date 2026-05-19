@@ -86,6 +86,24 @@ function initSidebar() {
         logoLink.style.cursor = 'pointer';
         logoLink.onclick = () => window.location.href = 'index.html';
     }
+
+    // Update Saved Quotations link to Quotation History and add badge
+    const savedLink = Array.from(document.querySelectorAll('.nav-menu a')).find(link => link.href.includes('saved.html'));
+    if (savedLink) {
+        let saved = JSON.parse(localStorage.getItem('savedQuotes') || '[]');
+        saved = saved.filter(q => {
+            if (!q.brand) return currentBrand === 'aquant';
+            return q.brand === currentBrand;
+        });
+        
+        savedLink.innerHTML = `
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+            </svg>
+            Quotation History
+            <span class="nav-badge">${saved.length}</span>
+        `;
+    }
 }
 
 // Single entry point

@@ -1473,6 +1473,133 @@ a {
     background-color: rgba(197, 160, 89, 0.1);
 }
 
+/* =========================================
+   QUOTATION HISTORY (List View)
+   ========================================= */
+
+.history-section-header {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 0.1em;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.5rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.history-item:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.history-item-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.history-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.history-client {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.history-date {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.history-item-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.history-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f59e0b;
+    margin-right: 1rem;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-btn {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+.edit-btn:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.delete-btn {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+.delete-btn:hover {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Nav Badge */
+.nav-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-main);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    margin-left: auto;
+}
+[data-theme="dark"] .nav-badge {
+    background-color: rgba(255,255,255,0.1);
+}
+.nav-item.active .nav-badge {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
 
 
 
