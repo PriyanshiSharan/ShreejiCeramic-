@@ -64,27 +64,52 @@ function renderList(quotes) {
         const color = getAvatarColor(quote.clientName || '?');
         const formatted = formatDate(quote.date);
         
+        // Build items HTML
+        let itemsHtml = `<div class="timeline-items" id="items-${quote.id}" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-color);">`;
+        if (quote.items && quote.items.length > 0) {
+            itemsHtml += `<table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                            <tr style="color: var(--text-muted); text-align: left;">
+                                <th style="padding-bottom: 0.5rem; font-weight: 500;">Model Number</th>
+                                <th style="padding-bottom: 0.5rem; font-weight: 500; text-align: center;">Qty</th>
+                                <th style="padding-bottom: 0.5rem; font-weight: 500; text-align: right;">Disc.</th>
+                            </tr>`;
+            quote.items.forEach(item => {
+                itemsHtml += `<tr>
+                                <td style="padding: 0.25rem 0; font-weight: 500; color: var(--text-main);">${item.modelNumber || 'Unknown'}</td>
+                                <td style="padding: 0.25rem 0; text-align: center;">${item.qty || 1}</td>
+                                <td style="padding: 0.25rem 0; text-align: right;">${item.disc ? item.disc + '%' : '-'}</td>
+                              </tr>`;
+            });
+            itemsHtml += `</table>`;
+        } else {
+            itemsHtml += `<div style="font-size: 0.85rem; color: var(--text-muted);">No items details found.</div>`;
+        }
+        itemsHtml += `</div>`;
+
         html += `
             <div class="timeline-row">
                 <div class="timeline-left">
                     <div class="timeline-date">${formatted.datePart}</div>
                     <div class="timeline-time">${formatted.timePart}</div>
                 </div>
-                <div class="timeline-card">
-                    <div class="timeline-avatar" style="background-color: ${color};">${initial}</div>
-                    <div class="timeline-content">
-                        <div class="timeline-client">${quote.clientName || 'Unnamed Client'}</div>
-                        <div class="timeline-meta">ID: ${quote.id || 'N/A'}</div>
+                <div class="timeline-card" style="cursor: pointer;" onclick="toggleItems('${quote.id}')">
+                    <div style="display: flex; align-items: center; width: 100%;">
+                        <div class="timeline-avatar" style="background-color: ${color};">${initial}</div>
+                        <div class="timeline-content">
+                            <div class="timeline-client">${quote.clientName || 'Unnamed Client'}</div>
+                            <div class="timeline-meta">ID: ${quote.id || 'N/A'}</div>
+                        </div>
+                        <div class="timeline-actions">
+                            <div class="timeline-price">₹${quote.totalAmount ? quote.totalAmount.toLocaleString('en-IN', {maximumFractionDigits:0}) : '0'}</div>
+                            <button class="icon-btn edit-btn" onclick="event.stopPropagation(); viewQuote('${quote.id}')" title="Edit">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                            </button>
+                            <button class="icon-btn delete-btn" onclick="event.stopPropagation(); removeQuote('${quote.id}')" title="Delete">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
+                        </div>
                     </div>
-                    <div class="timeline-actions">
-                        <div class="timeline-price">₹${quote.totalAmount ? quote.totalAmount.toLocaleString('en-IN', {maximumFractionDigits:0}) : '0'}</div>
-                        <button class="icon-btn edit-btn" onclick="viewQuote('${quote.id}')" title="Edit">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                        </button>
-                        <button class="icon-btn delete-btn" onclick="removeQuote('${quote.id}')" title="Delete">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
-                    </div>
+                    ${itemsHtml}
                 </div>
             </div>
         `;
@@ -109,7 +134,18 @@ function removeQuote(id) {
     let saved = JSON.parse(localStorage.getItem('savedQuotes') || '[]');
     saved = saved.filter(q => q.id !== id);
     localStorage.setItem('savedQuotes', JSON.stringify(saved));
-    init(); // re-init to update counts and list
+    init(); // Re-render list
+}
+
+function toggleItems(quoteId) {
+    const el = document.getElementById('items-' + quoteId);
+    if (el) {
+        if (el.style.display === 'none') {
+            el.style.display = 'block';
+        } else {
+            el.style.display = 'none';
+        }
+    }
 }
 
 function viewQuote(id) {
