@@ -5907,7 +5907,49 @@ const productDatabase = [
         "price": 4100,
         "image": "1017G.jpg"
     },
+        {
+        "modelNumber": "1961 + 1963 AB",
+        "description": "Semi Counter White Basin With Tap Hole + SS Stand With Napkin Holder & Shelf - Antique Bronze",
+        "finish": "Antique Bronze",
+        "price": 76000,
+        "image": "p8_1961_1963AB.jpg"
+    },
     {
+        "modelNumber": "1961 + 1963 G",
+        "description": "Semi Counter White Basin With Tap Hole + SS Stand With Napkin Holder & Shelf - Gold Finish",
+        "finish": "Gold Finish",
+        "price": 76000,
+        "image": "p8_1961_1963G.jpg"
+    },
+    {
+        "modelNumber": "1961",
+        "description": "Semi Counter Basin - White",
+        "finish": "White",
+        "price": 16500,
+        "image": "p8_1961.jpg"
+    },
+    {
+        "modelNumber": "1941",
+        "description": "Three Hole Semi Counter Basin - White",
+        "finish": "White",
+        "price": 12500,
+        "image": "1941_p85_1.jpg"
+    },
+    {
+        "modelNumber": "1962 + 1963 AB",
+        "description": "Three Hole Semi Counter White Basin + SS Stand With Napkin Holder & Shelf - Antique Bronze",
+        "finish": "Antique Bronze",
+        "price": 77000,
+        "image": "p8_1962_1963AB.jpg"
+    },
+    {
+        "modelNumber": "1962 + 1963 G",
+        "description": "Three Hole Semi Counter White Basin + SS Stand With Napkin Holder & Shelf - Gold Finish",
+        "finish": "Gold Finish",
+        "price": 77000,
+        "image": "p8_1962_1963G.jpg"
+    },
+{
         "modelNumber": "1963 AB",
         "description": "SS Stand With Napkin Holder - Antique Bronze",
         "finish": "Antique Bronze",

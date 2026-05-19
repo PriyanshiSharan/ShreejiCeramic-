@@ -78,10 +78,25 @@ function init() {
 
 function handleSearch(e, products) {
     const query = e.target.value.toLowerCase().trim();
-    const filtered = products.filter(p => 
-        p.modelNumber.toLowerCase().includes(query) ||
-        p.description.toLowerCase().includes(query)
-    );
+    if (query === '') {
+        renderGrid(products);
+        return;
+    }
+    
+    // Support combination searches (e.g. "1961+1963AB") by splitting by '+'
+    const queries = query.includes('+') ? query.split('+').map(s => s.trim()) : [query];
+    
+    const filtered = products.filter(p => {
+        // Strip spaces in modelNumber for robust comparison
+        const model = p.modelNumber ? p.modelNumber.toLowerCase().replace(/\s+/g, '') : '';
+        const desc = p.description ? p.description.toLowerCase() : '';
+        
+        return queries.some(q => {
+            if (q === '') return false;
+            const cleanQ = q.replace(/\s+/g, '');
+            return model.includes(cleanQ) || desc.includes(cleanQ);
+        });
+    });
     renderGrid(filtered);
 }
 
@@ -104,7 +119,17 @@ function toggleQuote(e, modelNumber) {
 
     renderGrid(filteredByBrand.filter(p => {
         const q = searchInput.value.toLowerCase().trim();
-        return p.modelNumber.toLowerCase().includes(q) || p.description.toLowerCase().includes(q);
+        if (q === '') return true;
+        
+        const queries = q.includes('+') ? q.split('+').map(s => s.trim()) : [q];
+        const model = p.modelNumber ? p.modelNumber.toLowerCase().replace(/\s+/g, '') : '';
+        const desc = p.description ? p.description.toLowerCase() : '';
+        
+        return queries.some(sq => {
+            if (sq === '') return false;
+            const cleanSQ = sq.replace(/\s+/g, '');
+            return model.includes(cleanSQ) || desc.includes(cleanSQ);
+        });
     }));
 }
 
