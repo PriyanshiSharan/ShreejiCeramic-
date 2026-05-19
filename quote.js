@@ -170,7 +170,7 @@ function saveQuote() {
     const payload = {
         id: "QT-" + Math.floor(1000 + Math.random() * 9000),
         brand: brand,
-        date: new Date().toLocaleDateString(),
+        date: new Date().toISOString(),
         clientName: document.getElementById('clientName').value || "Walk-in Client",
         phone: document.getElementById('clientPhone').value,
         preparedBy: document.getElementById('preparedBy').value,
