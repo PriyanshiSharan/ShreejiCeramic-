@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Instructions - Shreeji Ceramica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .main-area {
+            background-color: #0f172a; /* High Contrast Dark Theme */
+        }
+        .care-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .care-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .care-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .care-section-title {
+            color: white;
+            font-size: 1.25rem;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+        .care-text {
+            color: #f1f5f9;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+        .care-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .care-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        .care-item h3 {
+            color: #60a5fa;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .care-item p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .danger-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            color: #fca5a5;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">S</div>
+                <div class="sidebar-title">Shreeji Ceramica</div>
+            </div>
+
+            <a href="index.html" class="back-btn">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Switch Brand
+            </a>
+            
+            <div class="nav-label">NAVIGATION</div>
+            <ul class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="quote.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Create Quote
+                </a>
+                <a href="promise.html" class="nav-item" data-brand-only="aquant">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    Our Promise
+                </a>
+                <a href="care.html" class="nav-item active" data-brand-only="aquant">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Care Instructions
+                </a>
+                <a href="dashboard.html?cat=Cleaning Solutions" class="nav-item" data-brand-only="kohler">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.691.383a4 4 0 01-2.58.344l-2.147-.358a2 2 0 01-1.613-2.683l.243-.728a5 5 0 014.032-3.328l2.697-.45a6 6 0 003.861-.517l.691-.383a4 4 0 012.58-.344l2.147.358a2 2 0 011.613 2.683l-.243.728a5 5 0 01-4.032 3.328l-2.697.45z"></path>
+                    </svg>
+                    Cleaning Solutions
+                </a>
+                <a href="saved.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                    </svg>
+                    Saved Quotations
+                </a>
+                <a href="about.html" class="nav-item" data-brand-only="kohler">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    About Us
+                </a>
+            </ul>
+        </aside>
+
+        <!-- Main Area -->
+        <main class="main-area">
+            <header class="top-header">
+                <div class="header-left">
+                    <div class="location-pill">Catalog Maintenance Portal</div>
+                </div>
+                <div class="header-right">
+                    <div class="header-brand"></div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="care-container">
+                    <div class="care-card">
+                        <h1 class="care-title">CARE & MAINTENANCE</h1>
+                        
+                        <div class="care-text">
+                            To maintain the high-quality finish and operation of your Aquant products, 
+                            strict adherence to these maintenance protocols is essential. Modern cleaning agents 
+                            contain a variety of chemicals; only by following the instructions below can you prevent 
+                            permanent damage.
+                        </div>
+
+                        <div class="care-grid">
+                            <div class="care-item">
+                                <h3>Cleaning Equipment</h3>
+                                <p>Use a soft, damp cloth or a high-quality micro-fiber cloth. Never use abrasive sponges or scouring agents which cause permanent scratches.</p>
+                            </div>
+                            <div class="care-item">
+                                <h3>Cleaning Process</h3>
+                                <p>Apply cleaning agents onto a soft cloth first. <strong>Never</strong> spray directly onto the product as liquid can enter gaps & openings causing internal damage.</p>
+                            </div>
+                            <div class="care-item">
+                                <h3>Tolietries Residue</h3>
+                                <p>Residues of liquid soaps, shampoos, hair dyes, perfumes, and lipstick can cause damage. Rinse thoroughly with clean water after use.</p>
+                            </div>
+                            <div class="care-item">
+                                <h3>Testing & Timing</h3>
+                                <p>Always test any cleaning agent on an inconspicuous area first. Do not allow the cleaner to remain on the product for an extended period.</p>
+                            </div>
+                        </div>
+
+                        <h2 class="care-section-title">Chemical Restrictions</h2>
+                        <div class="care-text">
+                            Aquant finishes are premium coatings. The following substances will cause irreversible damage:
+                        </div>
+                        <ul style="color: #fca5a5; list-style: disc; padding-left: 2rem; line-height: 2;">
+                            <li>Hydrochloric Acid</li>
+                            <li>Formic Acid</li>
+                            <li>Phosphorus Acid</li>
+                            <li>Chlorine / Bleach</li>
+                            <li>Acetic Acid</li>
+                        </ul>
+
+                        <div class="danger-box">
+                            <strong>WARNING:</strong> Never mix different cleaning agents. After cleaning, always dry the product surface with a soft, dry cloth to prevent water spots and mineral buildup.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="theme.js"></script>
+</body>
+</html>

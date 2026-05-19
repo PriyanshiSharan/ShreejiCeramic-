@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Promise - Shreeji Ceramica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .main-area {
+            background-color: #0f172a; /* Deep Navy to ensure light text is visible */
+        }
+        .promise-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .promise-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        .promise-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3b82f6; /* Brighter blue */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .promise-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #f8fafc; /* Near white for high contrast */
+            text-align: justify;
+        }
+        .care-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .care-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid #3b82f6;
+        }
+        .care-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        .care-item p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        .warning-box {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            color: #fca5a5;
+            font-size: 0.9rem;
+        }
+        .warranty-table th {
+            text-align: left; 
+            padding: 1rem; 
+            color: #60a5fa; /* Light blue headers */
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        .warranty-table td {
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">S</div>
+                <div class="sidebar-title">Shreeji Ceramica</div>
+            </div>
+
+            <a href="index.html" class="back-btn">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Switch Brand
+            </a>
+            
+            <div class="nav-label">NAVIGATION</div>
+            <ul class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="quote.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Create Quote
+                </a>
+                <a href="promise.html" class="nav-item active" data-brand-only="aquant">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    Our Promise
+                </a>
+                <a href="care.html" class="nav-item" data-brand-only="aquant">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Care Instructions
+                </a>
+                <a href="dashboard.html?cat=Cleaning Solutions" class="nav-item" data-brand-only="kohler">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.691.383a4 4 0 01-2.58.344l-2.147-.358a2 2 0 01-1.613-2.683l.243-.728a5 5 0 014.032-3.328l2.697-.45a6 6 0 003.861-.517l.691-.383a4 4 0 012.58-.344l2.147.358a2 2 0 011.613 2.683l-.243.728a5 5 0 01-4.032 3.328l-2.697.45z"></path>
+                    </svg>
+                    Cleaning Solutions
+                </a>
+                <a href="saved.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                    </svg>
+                    Saved Quotations
+                </a>
+                <a href="about.html" class="nav-item" data-brand-only="kohler">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    About Us
+                </a>
+            </ul>
+        </aside>
+
+        <!-- Main Area -->
+        <main class="main-area">
+            <header class="top-header">
+                <div class="header-left">
+                    <div class="location-pill">Aquant Portal v2.0</div>
+                </div>
+                <div class="header-right">
+                    <div class="header-brand"></div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="promise-container">
+                    <!-- Our Promise (Catalog Page 92) -->
+                    <div class="promise-card">
+                        <h1 class="promise-title">OUR PROMISE</h1>
+                        <h2 style="color: white; margin-bottom: 2rem; font-size: 1.8rem; text-align: center; font-weight: 300;">Our promise to you...</h2>
+                        <div class="promise-text" style="margin-bottom: 3rem;">
+                            We at Aquant are confident that your shower systems and sanitary ware will give you many years of trouble free operation, 
+                            however for peace of mind all our products are covered by the following service warranty:
+                        </div>
+
+                        <!-- Warranty Table -->
+                        <div style="overflow-x: auto; margin-bottom: 3rem;">
+                            <table class="warranty-table" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid rgba(255,255,255,0.1);">
+                                        <th>Product Category</th>
+                                        <th>Residential</th>
+                                        <th>Commercial</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Diverters</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Brass Faucets</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Concealed Multi-Function Showers</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Brass Showers</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Shower Panels</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Kitchen Faucets</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Kitchen Faucet's Rubber Tube & Flexible Tube</td>
+                                        <td style="padding: 0.8rem 1rem;">3 years</td>
+                                        <td style="padding: 0.8rem 1rem;">2 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Kitchen Faucet's Pullout Tube</td>
+                                        <td style="padding: 0.8rem 1rem;">3 years</td>
+                                        <td style="padding: 0.8rem 1rem;">2 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">PVD Finishes (Bath Fittings & Accessories)</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                        <td style="padding: 0.8rem 1rem;">2.5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">PVD Finishes (Health Faucet & Hose)</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                        <td style="padding: 0.8rem 1rem;">6 months</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Pneumatic Concealed Cistern</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Marble & Onyx Basins / Concrete Basins / SS PVD Basins</td>
+                                        <td style="padding: 0.8rem 1rem;">3 years</td>
+                                        <td style="padding: 0.8rem 1rem;">2 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Crystal & Glass Basins</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                        <td style="padding: 0.8rem 1rem;">-</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Vitreous China (Basins & WC) Glossy White</td>
+                                        <td style="padding: 0.8rem 1rem;">10 years</td>
+                                        <td style="padding: 0.8rem 1rem;">5 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Sanitaryware Special Finishes (Matt/Glossy/PVD)</td>
+                                        <td style="padding: 0.8rem 1rem;">3 years</td>
+                                        <td style="padding: 0.8rem 1rem;">2 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Ceramic Flush Tank Spare Parts</td>
+                                        <td style="padding: 0.8rem 1rem;">3 years</td>
+                                        <td style="padding: 0.8rem 1rem;">2 years</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Toilet-Seat Soft Close Mechanism</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                        <td style="padding: 0.8rem 1rem;">6 months</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Wooden Seat Cover</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                        <td style="padding: 0.8rem 1rem;">-</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Intelligent Toilet Seat Cover & Remote</td>
+                                        <td style="padding: 0.8rem 1rem;">3 years</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">LED Lights</td>
+                                        <td style="padding: 0.8rem 1rem;">2 years</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Bath Chairs</td>
+                                        <td style="padding: 0.8rem 1rem;">2 years</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">ABS Showers (Hand & Head Shower)</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                        <td style="padding: 0.8rem 1rem;">6 months</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                        <td style="padding: 0.8rem 1rem;">Other Allied Products (Hoses, Bottle Traps, etc.)</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                        <td style="padding: 0.8rem 1rem;">6 months</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        <td style="padding: 0.8rem 1rem;">Cartridge/Spindle</td>
+                                        <td style="padding: 0.8rem 1rem;">3 years</td>
+                                        <td style="padding: 0.8rem 1rem;">1 year</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Footer Details -->
+                        <div class="promise-text" style="font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+                            <p style="margin-bottom: 1rem;"><strong>*Warranty Coverage</strong> is available exclusively for products purchased from authorized dealers. Original Sales Invoice is required for all warranty claims.</p>
+                            <p style="margin-bottom: 1rem;"><strong>Products Not Covered:</strong> 1) Cracks & Damage For Basins & Toilets. 2) Scratches, Damage & Mishandling. 3) All Rubber Parts (e.g. shower nozzles & ring washers).</p>
+                            <p>Whether you have a spare-part requirement, installation guidance request or a technical problem – we would be happy to assist you further. Our Team is passionate about delivering Exceptional Customer Service.</p>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="theme.js"></script>
+</body>
+</html>
