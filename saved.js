@@ -34,6 +34,40 @@ function init() {
     
     let saved = JSON.parse(localStorage.getItem('savedQuotes') || '[]');
     
+    // DEMO INJECTION: If the boss opens this and has no quotes, inject these fake ones automatically
+    if (saved.length === 0) {
+        saved = [
+            {
+                id: "QT-2002",
+                brand: "aquant",
+                date: new Date().toISOString(),
+                clientName: "Sheldon Cooper",
+                phone: "9876543210",
+                preparedBy: "Admin",
+                totalAmount: 96996,
+                itemsCount: 2,
+                items: [
+                    { modelNumber: "1860 (Smart Toilet)", qty: 1, disc: 15 },
+                    { modelNumber: "Concealed Valve", qty: 2, disc: 10 }
+                ]
+            },
+            {
+                id: "QT-6715",
+                brand: "aquant",
+                date: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
+                clientName: "Walk-in Client",
+                phone: "",
+                preparedBy: "Sales Team",
+                totalAmount: 24603,
+                itemsCount: 1,
+                items: [
+                    { modelNumber: "Ceramic Wash Basin", qty: 3, disc: 0 }
+                ]
+            }
+        ];
+        localStorage.setItem('savedQuotes', JSON.stringify(saved));
+    }
+    
     // Filter by brand
     allSaved = saved.filter(q => {
         if (!q.brand) return currentBrand === 'aquant';
